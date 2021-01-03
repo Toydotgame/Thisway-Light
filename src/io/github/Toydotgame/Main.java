@@ -1,5 +1,7 @@
 package io.github.Toydotgame;
 
+import java.util.Arrays;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -78,14 +80,20 @@ public class Main extends JavaPlugin implements CommandExecutor {
 			DataStorage.zMod = 0;
 		}
 		
-		int modX = x + DataStorage.xMod;
-		int modZ = z + DataStorage.zMod;
+		double modX = x + DataStorage.xMod + 0.5;
+		double modZ = z + DataStorage.zMod + 0.5;
 
 		String dim = p.getLocation().getWorld().getName();
 
 		float rot = p.getEyeLocation().getPitch();
-
-		Location nLoc = new Location(Bukkit.getWorld(dim), modX, y, modZ, yaw, rot);
-		p.teleport(nLoc);
+		
+		Location hLoc = new Location(Bukkit.getWorld(dim), modX, y + 1, modZ, yaw, rot);
+		boolean s = Arrays.asList(DataStorage.sb).contains(String.valueOf(hLoc.getBlock().getType()));
+		if(s == true) {
+			Location nLoc = new Location(Bukkit.getWorld(dim), modX, y, modZ, yaw, rot);
+			p.teleport(nLoc);
+		} else {
+			sender.sendMessage(ChatColor.RED + "Invalid location to be TPed to! Aborting!");
+		}
 	}
 }
