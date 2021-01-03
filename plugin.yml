@@ -8,3 +8,7 @@ commands:
    tw:
       description: Teleport the select amount of blocks the way you're facing.
       usage: "Usage: /tw <distance>"
+permissions:
+   tw.use:
+      description: Allows use of /tw.
+      default: op

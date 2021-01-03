@@ -25,21 +25,26 @@ public class Main extends JavaPlugin implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
-			if(args.length == 1) {
-				if(args[0].matches("^[0-9]*$") && args[0] != "0") {
-					thisway(sender, args);
-					return true;
+			if(sender.hasPermission("tw.use")) {
+				if(args.length == 1) {
+					if(args[0].matches("^[0-9]*$") && args[0] != "0") {
+						thisway(sender, args);
+						return true;
+					} else {
+						sender.sendMessage(ChatColor.RED + "Invalid argument!");
+						return false;
+					}
 				} else {
-					sender.sendMessage(ChatColor.RED + "Invalid argument!");
+					sender.sendMessage(ChatColor.RED + "Invalid argument amount!");
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColor.RED + "Invalid arguments!");
-				return false;
+				sender.sendMessage(ChatColor.RED + "You do not have the permission to use /tw!");
+				return true;
 			}
 		} else {
 			System.out.print("[Thisway] Players only!");
-			return false;
+			return true;
 		}
 	}
 	
