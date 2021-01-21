@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin implements CommandExecutor {
 	@Override
 	public void onEnable() {
-		
+		System.out.print("[Thisway] Thisway Light is deprecated! Please use the original Thisway for bug support and updates.");
 	}
 	
 	@Override
