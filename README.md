@@ -1,5 +1,5 @@
 ### Thisway Light is Discontinued
-The last versions of the plugin are going to release soon, and this page will stay up as an archive as such. Thanks for your interest in the plugin.
+The last version of the plugin has been released, and this page will stay up as an archive as such. Thanks for your interest in the plugin.
 Thisway Light is a stripped down version of Thisway, and normal Thisway is already very basic - so might I reccomend that you use that instead for longer support?
 
 ***
