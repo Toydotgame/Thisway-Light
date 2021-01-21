@@ -25,13 +25,13 @@ public class Main extends JavaPlugin implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
-			if(sender.hasPermission("tw.use")) {
+			if(sender.isOp()) {
 				if(args.length == 1) {
 					if(args[0].matches("^[0-9]*$") && args[0] != "0") {
 						thisway(sender, args);
 						return true;
 					} else {
-						sender.sendMessage(ChatColor.RED + "Invalid argument!");
+						sender.sendMessage(ChatColor.RED + "Not a number!");
 						return false;
 					}
 				} else {
@@ -39,7 +39,7 @@ public class Main extends JavaPlugin implements CommandExecutor {
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColor.RED + "You do not have the permission to use /tw!");
+				sender.sendMessage(ChatColor.RED + "You aren't an operator!");
 				return true;
 			}
 		} else {
